@@ -134,6 +134,12 @@ class Autotest
         puts opts
         exit 1
       end
+
+      opts.on "-x", "--extras OPTIONS", Array, "Send command line options to the test framework." do |tag|
+        options[:extras] = [] unless options[:extras]
+        options[:extras] << tag
+      end
+
     end.parse args
 
     Autotest.options.merge! options
